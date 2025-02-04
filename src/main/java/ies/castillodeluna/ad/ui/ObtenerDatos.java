@@ -198,4 +198,34 @@ public class ObtenerDatos {
 
     }
 
+    /**
+     * Metodo que solicita y valida el ID de una zona
+     * @return ID de la zona
+     */
+
+    public int guardarIDZona() {
+        
+        int id = -1;
+
+        do {
+            System.out.println("Ingrese el ID de la zona: ");
+
+            try {
+                id = sc.nextInt();
+                if (id <= 0) {
+                    System.out.println("El numero introducido tiene que ser mayor a 0");
+                } else if (id != 1 && id != 2) {
+                    System.out.println("Solo existen las zonas 1 (Norte) y 2 (Sur)");
+                    id = -1;
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println("Valor introducido invalido");
+            }
+
+        } while (id <= 0);
+
+        return id;
+    }
+
 }

@@ -45,6 +45,7 @@ public class UI {
 
         while (salir) {
             
+            System.out.println("········· MENU ········· ");
             System.out.println("1. Agregar cliente");
             System.out.println("2. Agregar pedido");
             System.out.println("3. Listar clientes");
