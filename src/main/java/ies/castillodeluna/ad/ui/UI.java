@@ -36,7 +36,7 @@ public class UI {
     }
 
     /**
-     * 
+     * Metodo que muestra y gestiona el menú principal
      */
     public void menu(){
 
@@ -48,7 +48,13 @@ public class UI {
             System.out.println("········· MENU ········· ");
             System.out.println("1. Agregar cliente");
             System.out.println("2. Agregar pedido");
-            System.out.println("3. Listar clientes");
+            System.out.println("3. Actualizar cliente");
+            System.out.println("4. Borrar cliente");
+            System.out.println("5. Borrar pedido");
+            System.out.println("6. Listar clientes");
+            System.out.println("7. Listar zonas de envío");
+            System.out.println("8. Consultar pedidos de cliente");
+            System.out.println("0. Salir");
 
             int seleccion = sc.nextInt();
             sc.nextLine();
@@ -59,13 +65,39 @@ public class UI {
                     break;
 
                 case 2:
-                    
+                    ui.guardarPedido(conexion, datos);
                     break;
             
                 case 3:
+                    ui.actualizarCliente(conexion, datos);
+                    break;
+
+                case 4:
+                    ui.borrarCliente(conexion);
+                    break;
+
+                case 5:
+                    ui.borrarPedido(conexion);
+                    break;
+
+                case 6:
                     ui.listaClientes(conexion);
                     break;
 
+                case 7:
+                    ui.listaZonasEnvio(conexion);
+                    break;
+
+                case 8:
+                    ui.consultarPedidosCliente(conexion);
+                    break;
+
+                case 0:
+
+                    salir = false;
+                    System.out.println("Hasta luegooooo!!!!!");
+
+                    break;
                 default:
                     System.out.println("Opcion seleccionada no valida");
             }

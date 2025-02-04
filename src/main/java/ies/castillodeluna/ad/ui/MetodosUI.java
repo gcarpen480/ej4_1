@@ -11,19 +11,20 @@ import ies.castillodeluna.ad.models.Pedido;
 import ies.castillodeluna.ad.models.ZonaEnvio;
 
 /**
- * 
+ * Clase que contiene los métodos para interactuar con la base de datos
+ * a traves de la interfaz de usuario
  */
 public class MetodosUI {
 
     /**
-     * 
+     * Scanner para la entrada de datos
      */
     private static final Scanner sc = new Scanner(System.in);
 
     /**
-     * 
-     * @param conexion
-     * @param datos
+     * Metodo para guardar un nuevo cliente en la base de datos
+     * @param conexion Conexión a la base de datos
+     * @param datos Objeto para obtener los datos del cliente
      */
     public void guardarCliente(Conexion conexion, ObtenerDatos datos) {
 
@@ -49,9 +50,9 @@ public class MetodosUI {
     }
 
     /**
-     * 
-     * @param conexion
-     * @param datos
+     * Metodo para guardar un nuevo pedido en la base de datos
+     * @param conexion Conexión a la base de datos
+     * @param datos Objeto para obtener los datos del pedido
      */
     public void guardarPedido(Conexion conexion, ObtenerDatos datos) {
 
@@ -79,8 +80,8 @@ public class MetodosUI {
     }
 
     /**
-     * 
-     * @param conexion
+     * Metodo para eliminar un cliente de la base de datos
+     * @param conexion Conexión a la base de datos
      */
     public void borrarCliente(Conexion conexion) {
 
@@ -105,8 +106,8 @@ public class MetodosUI {
     }
 
     /**
-     * 
-     * @param conexion
+     * Metodo para eliminar un pedido de la base de datos
+     * @param conexion Conexión a la base de datos
      */
     public void borrarPedido(Conexion conexion) {
 
@@ -130,9 +131,9 @@ public class MetodosUI {
     }
 
     /**
-     * 
-     * @param conexion
-     * @param datos
+     * Metodo para actualizar los datos de un cliente existente
+     * @param conexion Conexión a la base de datos
+     * @param datos Objeto para obtener los nuevos datos del cliente
      */
     public void actualizarCliente(Conexion conexion, ObtenerDatos datos) {
 
@@ -168,8 +169,9 @@ public class MetodosUI {
     }
 
     /**
-     * 
-     * @param conexion
+     * Metodo para consultar y mostrar todos los pedidos de un cliente en particular
+     * incluyendo el total gastado
+     * @param conexion Conexión a la base de datos
      */
     public void consultarPedidosCliente(Conexion conexion) {
 
@@ -207,8 +209,8 @@ public class MetodosUI {
     }
 
     /**
-     * 
-     * @param conexion
+     * Metodo para mostrar la lista de todos los clientes
+     * @param conexion Conexión a la base de datos
      */
     public void listaClientes(Conexion conexion) {
 
@@ -227,8 +229,8 @@ public class MetodosUI {
     }
 
     /**
-     * 
-     * @param conexion
+     * Metodo para mostrar la lista de todas las zonas de envio
+     * @param conexion Conexión a la base de datos
      */
     public void listaZonasEnvio(Conexion conexion) {
 
