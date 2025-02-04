@@ -22,6 +22,10 @@ public class ObtenerDatos {
     public ObtenerDatos() {
     }
 
+    /**
+     * Metodo que solicita y valida el ID de un cliente
+     * @return ID del cliente
+     */
     public int guardarIDCliente() {
 
         int id = -1;
@@ -46,6 +50,10 @@ public class ObtenerDatos {
 
     }
 
+    /**
+     * Metodo que solicita y valida el nombre de un cliente
+     * @return Nombre del cliente
+     */
     public String guardarNombreCliente() {
 
         String nombre = "";
@@ -64,6 +72,10 @@ public class ObtenerDatos {
 
     }
 
+    /**
+     * Metodo que solicita y valida el correo electronico de un cliente
+     * @return Correo electrónico del cliente
+     */
     public String guardarCorreoCliente() {
 
         String correo = "";
@@ -82,6 +94,10 @@ public class ObtenerDatos {
 
     }
 
+    /**
+     * Metodo que solicita y valida el telefono de un cliente
+     * @return Numero de telefono del cliente
+     */
     public String guardarTelefonoCliente() {
 
         String telefono = "";
@@ -99,6 +115,10 @@ public class ObtenerDatos {
         return telefono;
     }
 
+    /**
+     * Metodo que solicita y valida el ID de un pedido
+     * @return ID del pedido
+     */
     public int guardarIDPedido() {
 
         int id = -1;
@@ -122,6 +142,10 @@ public class ObtenerDatos {
 
     }
 
+    /**
+     * Metodo que solicita y valida la fecha de un pedido
+     * @return Fecha del pedido
+     */
     public LocalDate guardarFechaPedido() {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -148,6 +172,10 @@ public class ObtenerDatos {
 
     }
 
+    /**
+     * Metodo que solicita y valida el importe total de un pedido
+     * @return Importe total
+     */
     public double guardarImporteTotal(){
 
         double importe = -1;
