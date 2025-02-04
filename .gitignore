@@ -1,0 +1,7 @@
+.vscode
+src/test/
+!target/
+target/*
+!target/reports
+target/reports/*
+!target/reports/apidocs
