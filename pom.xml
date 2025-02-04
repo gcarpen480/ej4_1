@@ -56,6 +56,14 @@
         </repository>
     </repositories>
 
+    <developers>
+        <developer>
+            <name>Gonzalo Carretero Peñalosa</name>
+            <email>gcarpen480@g.educaand.es</email>
+            <url>https://github.com/gcarpen480/ej4_1</url>
+        </developer>
+    </developers>
+
     <dependencies>
 
         <dependency>
