@@ -8,6 +8,10 @@ import java.util.Map;
  */
 public class CrearConexion {
     
+    /**
+     * Metodo para crear la URL de conexion para la base de datos
+     * @return Un mapa con los parametros de configuracion de la conexion a la base de datos
+     */
     public static Map<String , Object> opciones(){
 
         Path ruta = Path.of(System.getProperty("user.dir"), "src", "main", "resources", "pedidos.db");

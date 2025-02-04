@@ -30,8 +30,8 @@ public class PedidoSqlite implements Crud<Pedido>{
     private DataSource ds;
 
     /**
-     * 
-     * @param ds
+     * Constructor que inicializa el DAO
+     * @param ds DataSource para la conexión a la base de datos
      */
     public PedidoSqlite(DataSource ds) {
         this.ds = ds;
@@ -59,8 +59,8 @@ public class PedidoSqlite implements Crud<Pedido>{
     /**
      * Metodo que establece los parámetros de un PreparedStatement a partir de un Pedido
      * 
-     * @param pedido
-     * @param pstmt
+     * @param pedido Pedido donde obtenemos los datos para establecer en el PreparedStatement
+     * @param pstmt PreparedStatement donde establecemos los parametros para el pedido
      * @throws SQLException Excepcion si hay errores al acceder a los datos
      */
     private static void setPedidoParams(Pedido pedido, PreparedStatement pstmt) throws SQLException {

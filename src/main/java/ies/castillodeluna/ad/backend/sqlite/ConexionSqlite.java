@@ -68,7 +68,7 @@ public class ConexionSqlite implements Conexion{
     }
 
     /**
-     * 
+     * Metodo para crear el esquema inicial de la base de datos
      */
     private void esquema() throws DataAccessException {
 

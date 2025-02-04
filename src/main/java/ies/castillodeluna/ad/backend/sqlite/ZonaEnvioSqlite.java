@@ -26,8 +26,8 @@ public class ZonaEnvioSqlite implements Crud<ZonaEnvio>{
     private DataSource ds;
 
     /**
-     * 
-     * @param ds
+     * Constructor que inicializa el DAO
+     * @param ds DataSource para la conexión a la base de datos
      */
     public ZonaEnvioSqlite(DataSource ds) {
         this.ds = ds;
@@ -54,8 +54,8 @@ public class ZonaEnvioSqlite implements Crud<ZonaEnvio>{
     /**
      * Metodo que establece los parámetros de un PreparedStatement a partir de una ZonaEnvio
      * 
-     * @param zonaEnvio
-     * @param pstmt
+     * @param zonaEnvio ZonaEnvio donde obtenemos los datos para establecer en el PreparedStatement
+     * @param pstmt PreparedStatement donde establecemos los parametros para la zona de envio
      * @throws SQLException Excepcion si hay errores al cargar las relaciones
      */
     private static void setZonaEnvioParams(ZonaEnvio zonaEnvio, PreparedStatement pstmt) throws SQLException {

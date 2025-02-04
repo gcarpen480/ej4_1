@@ -28,8 +28,8 @@ public class ClienteSqlite implements Crud<Cliente>{
     private DataSource ds;
 
     /**
-     * 
-     * @param ds
+     * Constructor que inicializa el DAO
+     * @param ds DataSource para la conexión a la base de datos
      */
     public ClienteSqlite(DataSource ds) {
         this.ds = ds;
@@ -59,8 +59,8 @@ public class ClienteSqlite implements Crud<Cliente>{
     /**
      * Metodo que establece los parámetros de un PreparedStatement a partir de un Cliente
      * 
-     * @param cliente
-     * @param pstmt
+     * @param cliente Cliente donde obtenemos los datos para establecer en el PreparedStatement
+     * @param pstmt PreparedStatement donde establecemos los parametros para el cliente
      * @throws SQLException Excepcion si hay errores al acceder a los datos
      */
     private static void setClienteParams(Cliente cliente, PreparedStatement pstmt) throws SQLException {
