@@ -4,32 +4,45 @@ import java.time.LocalDate;
 
 import edu.acceso.sqlutils.Entity;
 import edu.acceso.sqlutils.annotations.Fk;
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 
 
 /**
  *  Modela un pedido
  */
+@jakarta.persistence.Entity
+@Table(name = "Pedidos")
 public class Pedido implements Entity{
     
     /**
      * Identificador del pedido
      */
+    @Id
+    @Column(name = "id_pedido")
     private int id;
 
     /**
      * Fecha del pedido
      */
+    @Column(name = "fecha" , nullable = false)
     private LocalDate fecha;
 
     /**
      * Importe total del pedido
      */
+    @Column(name = "importe_total" , nullable = false)
     private double importe;
 
     /**
      * Cliente que realiza el pedido
      */
+    @ManyToOne
+    @JoinColumn(name = "id_cliente" , nullable = false)
     @Fk private Cliente id_cliente;
 
     /**

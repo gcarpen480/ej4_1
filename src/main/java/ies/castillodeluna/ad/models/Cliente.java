@@ -2,35 +2,49 @@ package ies.castillodeluna.ad.models;
 
 import edu.acceso.sqlutils.Entity;
 import edu.acceso.sqlutils.annotations.Fk;
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 /**
  *  Modela un cliente
  */
+@jakarta.persistence.Entity
+@Table(name = "Clientes")
 public class Cliente implements Entity{
    
     /**
      * Identificador del cliente
      */
+    @Id
+    @Column(name = "id_cliente")
     private int id;
 
     /**
      * Nombre del cliente
      */
+    @Column(name = "nombre" , nullable = false)
     private String nombre;
 
     /**
      * Email del cliente
      */
+    @Column(name = "email" , nullable = false)
     private String email;
 
     /**
      * Teléfono del cliente
      */
+    @Column(name = "telefono" , nullable = false)
     private String telefono;
 
     /**
      * Zona de envío del cliente
      */
+    @ManyToOne
+    @JoinColumn(name = "id_zona" , nullable = false)
     @Fk private ZonaEnvio id_zona;
 
     /**
