@@ -68,6 +68,18 @@ public class Pedido implements Entity{
         this.id_cliente = id_cliente;
     }
 
+    /**
+     * Constructor sin el atributo id
+     * @param fecha Fecha del pedido
+     * @param importe Importe total del pedido
+     * @param id_cliente Cliente que realiza el pedido
+     */    
+    public Pedido(LocalDate fecha, double importe, Cliente id_cliente) {
+        this.fecha = fecha;
+        this.importe = importe;
+        this.id_cliente = id_cliente;
+    }
+
     public int getId() {
         return id;
     }

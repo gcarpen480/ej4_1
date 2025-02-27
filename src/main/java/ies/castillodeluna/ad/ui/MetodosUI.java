@@ -29,7 +29,6 @@ public class MetodosUI {
      */
     public void guardarCliente(Conexion conexion, ObtenerDatos datos) {
 
-        int id = datos.guardarIDCliente();
         String nombre = datos.guardarNombreCliente();
         String correo = datos.guardarCorreoCliente();
         String telefono = datos.guardarTelefonoCliente();
@@ -39,7 +38,7 @@ public class MetodosUI {
 
             ZonaEnvio zona = conexion.getZonaEnvio().get(id_zona).orElse(null);
 
-            Cliente cliente = new Cliente(id, nombre, correo, telefono, zona);
+            Cliente cliente = new Cliente(nombre, correo, telefono, zona);
             conexion.getCliente().insert(cliente);
 
             System.out.println("Cliente guardado correctamente");
@@ -59,7 +58,6 @@ public class MetodosUI {
 
         try {
 
-            int id = datos.guardarIDPedido();
             LocalDate fecha = datos.guardarFechaPedido();
             double importe = datos.guardarImporteTotal();
             int id_cliente = datos.guardarIDCliente();
@@ -71,7 +69,7 @@ public class MetodosUI {
                 return;
             }
 
-            Pedido pedido = new Pedido(id, fecha, importe, cliente);
+            Pedido pedido = new Pedido(fecha, importe, cliente);
             conexion.getPedido().insert(pedido);
             System.out.println("Pedido guardado correctamente");
 
@@ -229,7 +227,7 @@ public class MetodosUI {
             }
         } catch (DataAccessException e) {
             System.err.println("Error al listar los clientes: " + e.getMessage());
-            e.printStackTrace(); // Mostrar la traza completa para diagnóstico
+            e.printStackTrace();
         }
     }
 

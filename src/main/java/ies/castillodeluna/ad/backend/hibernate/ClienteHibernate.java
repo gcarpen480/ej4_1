@@ -16,8 +16,9 @@ public class ClienteHibernate implements Crud<Cliente> {
     public boolean delete(int id) throws DataAccessException {
 
         Transaction transaction = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
 
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try {
 
             transaction = session.beginTransaction();
             Cliente cliente = session.find(Cliente.class, id);
@@ -25,19 +26,20 @@ public class ClienteHibernate implements Crud<Cliente> {
             if (cliente != null) {
                 session.remove(cliente);
                 transaction.commit();
+                session.close();
                 return true;
             }
 
+            session.close();
             return false;
-
+            
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
-                throw new DataAccessException(e);
             }
+            session.close();
             throw new DataAccessException(e);
         }
-
     }
 
     @Override
@@ -73,18 +75,21 @@ public class ClienteHibernate implements Crud<Cliente> {
     public void insert(Cliente cliente) throws DataAccessException {
 
         Transaction transaction = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
 
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try {
 
             transaction = session.beginTransaction();
             session.persist(cliente);
             transaction.commit();
+            session.close();
 
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
-                throw new DataAccessException(e);
             }
+            session.close();
+            throw new DataAccessException(e);
         }
 
     }
@@ -93,21 +98,24 @@ public class ClienteHibernate implements Crud<Cliente> {
     public boolean update(Cliente cliente) throws DataAccessException {
 
         Transaction transaction = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
 
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try {
 
             transaction = session.beginTransaction();
             session.merge(cliente);
             transaction.commit();
+            session.close();
             return true;
 
         } catch (Exception e) {
+
             if (transaction != null) {
                 transaction.rollback();
             }
+            session.close();
             throw new DataAccessException(e);
         }
-
     }
 
     @Override

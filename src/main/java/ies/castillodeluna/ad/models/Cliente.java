@@ -73,6 +73,21 @@ public class Cliente implements Entity{
         this.id_zona = id_zona;
     }
 
+    /**
+     * Constructor sin el atributo id del cliente
+     * @param nombre Nombre del cliente
+     * @param email Email del cliente
+     * @param telefono Teléfono del cliente
+     * @param id_zona Zona de envío del cliente
+     */
+    
+     public Cliente(String nombre, String email, String telefono, ZonaEnvio id_zona) {
+        this.nombre = nombre;
+        this.email = email;
+        this.telefono = telefono;
+        this.id_zona = id_zona;
+    }
+
 
     public int getId() {
         return id;

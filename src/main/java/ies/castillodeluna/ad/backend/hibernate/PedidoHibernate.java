@@ -16,8 +16,9 @@ public class PedidoHibernate implements Crud<Pedido> {
     public boolean delete(int id) throws DataAccessException {
 
         Transaction transaction = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
 
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try {
 
             transaction = session.beginTransaction();
             Pedido pedido = session.find(Pedido.class, id);
@@ -25,16 +26,18 @@ public class PedidoHibernate implements Crud<Pedido> {
             if (pedido != null) {
                 session.remove(pedido);
                 transaction.commit();
+                session.close();
                 return true;
             }
 
+            session.close();
             return false;
-
+            
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
-                throw new DataAccessException(e);
             }
+            session.close();
             throw new DataAccessException(e);
         }
     }
