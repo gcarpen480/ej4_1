@@ -17,20 +17,17 @@ public class ConexionHibernate implements Conexion{
 
     @Override
     public Crud<Cliente> getCliente() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getCliente'");
+        return new ClienteHibernate();
     }
 
     @Override
     public Crud<Pedido> getPedido() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPedido'");
+        return new PedidoHibernate();
     }
 
     @Override
     public Crud<ZonaEnvio> getZonaEnvio() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getZonaEnvio'");
+        return new ZonaEnvioHibernate();
     }
     
 }

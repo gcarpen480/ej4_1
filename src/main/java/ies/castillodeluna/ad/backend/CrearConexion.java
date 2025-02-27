@@ -18,7 +18,7 @@ public class CrearConexion {
         String protocolo = "jdbc:sqlite:";
         String url = protocolo + ruta.toString();
 
-        return Map.of("base","sqlite", "url", url,"user","","password","");
+        return Map.of("base","hibernate", "url", url,"user","","password","");
 
     }
 
