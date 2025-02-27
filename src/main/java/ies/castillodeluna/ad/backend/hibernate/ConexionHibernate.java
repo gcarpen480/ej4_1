@@ -9,10 +9,17 @@ import ies.castillodeluna.ad.models.Cliente;
 import ies.castillodeluna.ad.models.Pedido;
 import ies.castillodeluna.ad.models.ZonaEnvio;
 
-public class ConexionHibernate implements Conexion{
+public class ConexionHibernate implements Conexion {
 
-    public ConexionHibernate(Map<String, Object> opciones) throws DataAccessException{
-        // TODO Auto-generated constructor stub
+    public ConexionHibernate(Map<String, Object> opciones) throws DataAccessException {
+        try {
+            // Verificar la conexión a Hibernate
+            HibernateUtil.getSessionFactory().openSession().close();
+            
+            System.out.println("Conexión a Hibernate establecida correctamente");
+        } catch (Exception e) {
+            throw new DataAccessException("Error al inicializar Hibernate: " + e.getMessage(), e);
+        }
     }
 
     @Override
@@ -29,5 +36,4 @@ public class ConexionHibernate implements Conexion{
     public Crud<ZonaEnvio> getZonaEnvio() {
         return new ZonaEnvioHibernate();
     }
-    
 }

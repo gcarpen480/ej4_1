@@ -2,6 +2,8 @@ package ies.castillodeluna.ad.models;
 
 import edu.acceso.sqlutils.Entity;
 import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -17,6 +19,7 @@ public class ZonaEnvio implements Entity{
      */
     @Id
     @Column(name = "id_zona")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     /**

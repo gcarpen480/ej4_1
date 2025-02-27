@@ -7,10 +7,22 @@ import ies.castillodeluna.ad.ui.UI;
 
 public class Main {
     public static void main(String[] args) {
-        
-        Map<String , Object> opciones = CrearConexion.opciones();
-        UI ui = new UI(opciones);
-        ui.menu();
-
+        try {
+            
+            System.out.println("Iniciando aplicación...");
+            
+            // Obtener opciones de conexión
+            Map<String, Object> opciones = CrearConexion.opciones();
+            
+            System.out.println("Configuración obtenida, iniciando UI...");
+            
+            // Iniciar la UI (que a su vez inicializa la conexión)
+            UI ui = new UI(opciones);
+            ui.menu();
+            
+        } catch (Exception e) {
+            System.err.println("Error al iniciar la aplicación: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

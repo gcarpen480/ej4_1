@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
         <!-- Conexión a la base de datos -->
-        <property name="hibernate.connection.url">jdbc:sqlite::memory:</property>
+        <property name="hibernate.connection.url">jdbc:sqlite:src/main/resources/pedidos.db</property>
         <property name="hibernate.connection.username"><!-- Sin utilidad para SQLite (puede eliminarse) --></property>
         <property name="hibernate.connection.password"><!-- Sin utilidad para SQLite (puede eliminarse) --></property>
         <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
@@ -14,11 +14,18 @@
         <property name="hibernate.dialect">org.hibernate.community.dialect.SQLiteDialect</property>
 
         <!-- Configuración de Hibernate -->
-        <property name="hibernate.hbm2ddl.auto">update</property> <!-- Política ante el esquema -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.current_session_context_class">thread</property>
 
         <!-- Configuración de logs (útil para depuración) -->
         <property name="hibernate.show_sql">true</property> <!-- Los logs muestran las sentencias SQL -->
         <property name="hibernate.format_sql">true</property> <!-- El SQL se muestra formateado -->
         <property name="hibernate.use_sql_comments">true</property> <!-- Comenta las sentencias SQL -->
+
+        <!-- Mapeo de las clases -->
+        <mapping class="ies.castillodeluna.ad.models.Cliente"/>
+        <mapping class="ies.castillodeluna.ad.models.Pedido"/>
+        <mapping class="ies.castillodeluna.ad.models.ZonaEnvio"/>
+
     </session-factory>
 </hibernate-configuration>

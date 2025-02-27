@@ -8,7 +8,6 @@ import org.hibernate.Transaction;
 
 import edu.acceso.sqlutils.dao.Crud;
 import edu.acceso.sqlutils.errors.DataAccessException;
-import ies.castillodeluna.ad.models.Pedido;
 import ies.castillodeluna.ad.models.ZonaEnvio;
 
 public class ZonaEnvioHibernate implements Crud<ZonaEnvio>{
@@ -46,7 +45,7 @@ public class ZonaEnvioHibernate implements Crud<ZonaEnvio>{
         try {
 
             Session session = HibernateUtil.getSessionFactory().openSession();
-            Stream<ZonaEnvio> result = session.createQuery("FROM Zonas_Envio", ZonaEnvio.class).stream();
+            Stream<ZonaEnvio> result = session.createQuery("FROM ZonaEnvio", ZonaEnvio.class).stream();
 
             return result.onClose(() -> session.close());
 

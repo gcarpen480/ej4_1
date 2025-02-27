@@ -1,6 +1,7 @@
 package ies.castillodeluna.ad.ui;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -213,18 +214,22 @@ public class MetodosUI {
      * @param conexion Conexión a la base de datos
      */
     public void listaClientes(Conexion conexion) {
-
         try {
-
             System.out.println("\n=== Lista de Clientes ===");
-
-            for (Cliente cliente : conexion.getCliente().get().toList()) {
-                System.out.println(cliente);
-                
+            
+            List<Cliente> clientes = conexion.getCliente().get().toList();
+            System.out.println("Número de clientes encontrados: " + clientes.size());
+            
+            if (clientes.isEmpty()) {
+                System.out.println("No hay clientes en la base de datos.");
+            } else {
+                for (Cliente cliente : clientes) {
+                    System.out.println(cliente);
+                }
             }
-
         } catch (DataAccessException e) {
             System.err.println("Error al listar los clientes: " + e.getMessage());
+            e.printStackTrace(); // Mostrar la traza completa para diagnóstico
         }
     }
 

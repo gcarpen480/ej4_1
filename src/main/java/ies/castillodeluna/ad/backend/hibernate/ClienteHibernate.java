@@ -46,8 +46,7 @@ public class ClienteHibernate implements Crud<Cliente> {
         try {
 
             Session session = HibernateUtil.getSessionFactory().openSession();
-            Stream<Cliente> result = session.createQuery("FROM Clientes", Cliente.class).stream();
-
+            Stream<Cliente> result = session.createQuery("FROM Cliente", Cliente.class).stream();
             return result.onClose(() -> session.close());
 
         } catch (Exception e) {

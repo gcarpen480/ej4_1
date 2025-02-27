@@ -44,7 +44,7 @@ public class PedidoHibernate implements Crud<Pedido> {
         try {
 
             Session session = HibernateUtil.getSessionFactory().openSession();
-            Stream<Pedido> result = session.createQuery("FROM Pedidos", Pedido.class).stream();
+            Stream<Pedido> result = session.createQuery("FROM Pedido", Pedido.class).stream();
 
             return result.onClose(() -> session.close());
 
