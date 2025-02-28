@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import ies.castillodeluna.ad.backend.Conexion;
 import ies.castillodeluna.ad.backend.Factory;
+import ies.castillodeluna.ad.backend.hibernate.HibernateUtil;
 
 /**
  * Clase que implementa la interfaz de usuario del sistema
@@ -95,6 +96,8 @@ public class UI {
                 case 0:
 
                     salir = false;
+                    cerrarConexiones();
+                    System.out.println("Cerrando conexiones...");
                     System.out.println("Hasta luegooooo!!!!!");
 
                     break;
@@ -107,4 +110,14 @@ public class UI {
         sc.close();
 
     }
+
+    private void cerrarConexiones() {
+    try {
+        HibernateUtil.shutdown();
+        System.out.println("Conexiones cerradas correctamente");
+    } catch (Exception e) {
+        System.err.println("Error al cerrar conexiones: " + e.getMessage());
+    }
+}
+
 }
