@@ -14,7 +14,7 @@ public class Factory{
      * Tipos de bases de datos soportada
      */
     private static final String tipo_bbdd_sqlite = "sqlite";
-    private static final String tipo_bbdd_hibernate = "adapter";
+    private static final String tipo_bbdd_hibernate = "hibernate";
     
     /**
      * Crea una conexión SQLite según las opciones especificadas
