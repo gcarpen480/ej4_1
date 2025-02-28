@@ -23,7 +23,7 @@
         <property name="hibernate.current_session_context_class">thread</property>
 
         <!-- Configuración de logs (útil para depuración) -->
-        <property name="hibernate.show_sql">true</property> <!-- Los logs muestran las sentencias SQL -->
+        <property name="hibernate.show_sql">false</property> <!-- Los logs muestran las sentencias SQL -->
         <property name="hibernate.format_sql">true</property> <!-- El SQL se muestra formateado -->
         <property name="hibernate.use_sql_comments">true</property> <!-- Comenta las sentencias SQL -->
 
