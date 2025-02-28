@@ -1,19 +1,13 @@
 # Enunciado Ejercicio
 
-Se dispone de una base de datos para gestionar pedidos de clientes de la que se facilita su esquema. Esta base tiene definidos:
+Tome el ejercicio sobre pedidos de clientes que se resolvió en la unidad dedicada a conectores y resuélvalo usando Hibernate respetando escrupulosamente la interfaz que se ideó en la resolución de aquel ejercicio o, lo que es lo mismo, para un usuario final no debería haber ninguna diferencia entre la ejecución de una u otra aplicación, porque verá ambas iguales.
 
-Zonas de envío.
+Debe resolver dos veces el ejercicio usando dos estrategias distintas:
 
-Clientes que viven en dichas zonas.
+Modifique el código del programa para acomodarse a la API de Hibernate/JPA.
 
-Pedidos que realizan los clientes.
+Respete escrupulosamente el programa ya escrito y limítese a:
 
-Escriba una aplicación con conectores (en Java, JDBC) que permita realizar lo siguiente:
+Anotar las clases del modelo para que pueda interpretarlas Hibernate.
 
-Agregar, borrar o manipular clientes y pedidos.
-
-Consultar la lista de zonas de envío y de clientes.
-
-Para cualquier cliente, obtener el listado de sus pedidos y el dinero total que han supuesto estos.
-
-Puede implementar la interfaz como quiera, mientras sea interactiva, pero deje preparado el programa para que puedan implementarse otras distintas.
+Escriba la traducción entre la API que usó en el ejercicio citado y la de Hibernate/JPA, a fin de que no haya que cambiar ninguna línea del programa (salvo las importaciones, claro está).
