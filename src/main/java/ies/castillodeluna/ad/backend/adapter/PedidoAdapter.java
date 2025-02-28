@@ -12,10 +12,18 @@ import edu.acceso.sqlutils.errors.DataAccessException;
 import ies.castillodeluna.ad.backend.hibernate.HibernateUtil;
 import ies.castillodeluna.ad.models.Pedido;
 
+/**
+ * Implementación del DAO para Pedido utilizando Hibernate
+ * Clase que sirve como adaptador entre la interfaz Crud y las operaciones de Hibernate
+ */
 public class PedidoAdapter implements Crud<Pedido> {
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public boolean delete(int id) throws DataAccessException {
+
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -36,8 +44,12 @@ public class PedidoAdapter implements Crud<Pedido> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public Stream<Pedido> get() throws DataAccessException {
+
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();            
@@ -52,8 +64,12 @@ public class PedidoAdapter implements Crud<Pedido> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public Optional<Pedido> get(int id) throws DataAccessException {
+
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Pedido pedido = session.find(Pedido.class, id);
             return Optional.ofNullable(pedido);
@@ -62,8 +78,12 @@ public class PedidoAdapter implements Crud<Pedido> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public void insert(Pedido pedido) throws DataAccessException {
+
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -78,8 +98,12 @@ public class PedidoAdapter implements Crud<Pedido> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public boolean update(Pedido pedido) throws DataAccessException {
+
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -95,8 +119,12 @@ public class PedidoAdapter implements Crud<Pedido> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public boolean update(int oldId, int newId) throws DataAccessException {
+        
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

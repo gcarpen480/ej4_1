@@ -6,7 +6,7 @@ import ies.castillodeluna.ad.backend.adapter.ConexionAdapter;
 import ies.castillodeluna.ad.backend.sqlite.ConexionSqlite;
 
 /**
- * Clase Factory encargada de crear conexiones con SQLite
+ * Clase Factory encargada de crear conexiones con SQLite o Hibernate
  */
 public class Factory{
     
@@ -17,9 +17,9 @@ public class Factory{
     private static final String tipo_bbdd_hibernate = "hibernate";
     
     /**
-     * Crea una conexión SQLite según las opciones especificadas
+     * Crea una conexión SQLite o Hibernate según las opciones especificadas
      * @param opciones Mapa con las opciones de configuración
-     * @return Instancia de ConexionSqlite
+     * @return Instancia de ConexionSqlite o ConexionAdapter
      */
     public static Conexion crearConexion(Map<String, Object> opciones) {
         
