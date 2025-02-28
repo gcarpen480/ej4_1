@@ -11,10 +11,10 @@ import ies.castillodeluna.ad.backend.sqlite.ConexionSqlite;
 public class Factory{
     
     /**
-     * Tipo de base de datos soportada
+     * Tipos de bases de datos soportada
      */
     private static final String tipo_bbdd_sqlite = "sqlite";
-    private static final String tipo_bbdd_hibernate = "hibernate";
+    private static final String tipo_bbdd_hibernate = "adapter";
     
     /**
      * Crea una conexión SQLite según las opciones especificadas
