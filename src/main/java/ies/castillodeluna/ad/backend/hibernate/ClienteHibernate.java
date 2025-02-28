@@ -11,10 +11,17 @@ import edu.acceso.sqlutils.dao.Crud;
 import edu.acceso.sqlutils.errors.DataAccessException;
 import ies.castillodeluna.ad.models.Cliente;
 
+/**
+ * Implementación de la interfaz Crud para la entidad Cliente utilizando Hibernate
+ */
 public class ClienteHibernate implements Crud<Cliente> {
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public boolean delete(int id) throws DataAccessException {
+        
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -35,12 +42,15 @@ public class ClienteHibernate implements Crud<Cliente> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public Stream<Cliente> get() throws DataAccessException {
+
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            // Cargamos todos los clientes en una lista y cerramos la sesión inmediatamente
             List<Cliente> clientes = session.createQuery("FROM Cliente", Cliente.class).list();
             return clientes.stream();
         } catch (Exception e) {
@@ -52,8 +62,12 @@ public class ClienteHibernate implements Crud<Cliente> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public Optional<Cliente> get(int id) throws DataAccessException {
+
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Cliente cliente = session.find(Cliente.class, id);
             return Optional.ofNullable(cliente);
@@ -62,8 +76,12 @@ public class ClienteHibernate implements Crud<Cliente> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public void insert(Cliente cliente) throws DataAccessException {
+
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -78,8 +96,12 @@ public class ClienteHibernate implements Crud<Cliente> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public boolean update(Cliente cliente) throws DataAccessException {
+
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -95,8 +117,12 @@ public class ClienteHibernate implements Crud<Cliente> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public boolean update(int oldId, int newId) throws DataAccessException {
+
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

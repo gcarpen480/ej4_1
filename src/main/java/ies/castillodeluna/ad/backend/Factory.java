@@ -4,11 +4,18 @@ import java.util.Map;
 
 import ies.castillodeluna.ad.backend.hibernate.ConexionHibernate;
 
+/**
+ * Clase que implementa el patrón Factory para la creación de conexiones a la base de datos
+ */
 public class Factory {
     
-    // private static final String TIPO_BBDD_SQLITE = "sqlite";
     private static final String TIPO_BBDD_HIBERNATE = "hibernate";
     
+    /**
+     * Crea una conexión Hibernate según las opciones especificadas
+     * @param opciones Mapa con las opciones de configuración
+     * @return Instancia de la conexión a la base de datos
+     */
     public static Conexion crearConexion(Map<String, Object> opciones) {
         String tipoBase = (String) opciones.get("base");
         
@@ -17,12 +24,6 @@ public class Factory {
         }
         
         switch (tipoBase.toLowerCase()) {
-            // case TIPO_BBDD_SQLITE:
-            //     try {
-            //         return new ConexionSqlite(opciones);
-            //     } catch (Exception e) {
-            //         throw new RuntimeException("Error creando conexión SQLite", e);
-            //     }
             case TIPO_BBDD_HIBERNATE:
                 try {
                     return new ConexionHibernate(opciones);

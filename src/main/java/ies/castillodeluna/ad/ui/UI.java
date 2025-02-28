@@ -111,6 +111,9 @@ public class UI {
 
     }
 
+    /**
+     * Método que cierra las conexiones abiertas
+     */
     private void cerrarConexiones() {
     try {
         HibernateUtil.shutdown();

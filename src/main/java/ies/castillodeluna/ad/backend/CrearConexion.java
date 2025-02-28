@@ -12,7 +12,7 @@ public class CrearConexion {
      * @return Un mapa con los parametros de configuracion de la conexion a la base de datos
      */
     public static Map<String, Object> opciones() {
-        // Usar la misma ruta que en hibernate.cfg.xml
+        
         String protocolo = "jdbc:sqlite:";
         String url = protocolo + "src/main/resources/pedidos.db";
 

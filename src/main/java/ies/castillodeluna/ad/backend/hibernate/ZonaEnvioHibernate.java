@@ -11,10 +11,17 @@ import edu.acceso.sqlutils.dao.Crud;
 import edu.acceso.sqlutils.errors.DataAccessException;
 import ies.castillodeluna.ad.models.ZonaEnvio;
 
+/**
+ * Implementación de la interfaz Crud para la entidad ZonaEnvio utilizando Hibernate
+ */
 public class ZonaEnvioHibernate implements Crud<ZonaEnvio> {
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public boolean delete(int id) throws DataAccessException {
+        
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -35,13 +42,15 @@ public class ZonaEnvioHibernate implements Crud<ZonaEnvio> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public Stream<ZonaEnvio> get() throws DataAccessException {
+
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            // Cargamos todas las zonas de envío en una lista y cerramos la sesión
-            // inmediatamente
             List<ZonaEnvio> zonas = session.createQuery("FROM ZonaEnvio", ZonaEnvio.class).list();
             return zonas.stream();
         } catch (Exception e) {
@@ -53,8 +62,12 @@ public class ZonaEnvioHibernate implements Crud<ZonaEnvio> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public Optional<ZonaEnvio> get(int id) throws DataAccessException {
+
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             ZonaEnvio zonaEnvio = session.find(ZonaEnvio.class, id);
             return Optional.ofNullable(zonaEnvio);
@@ -63,8 +76,12 @@ public class ZonaEnvioHibernate implements Crud<ZonaEnvio> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public void insert(ZonaEnvio zonaEnvio) throws DataAccessException {
+
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -79,8 +96,12 @@ public class ZonaEnvioHibernate implements Crud<ZonaEnvio> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public boolean update(ZonaEnvio zonaEnvio) throws DataAccessException {
+
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -96,8 +117,12 @@ public class ZonaEnvioHibernate implements Crud<ZonaEnvio> {
         }
     }
 
+    /**
+     * Implementación de los métodos CRUD
+     */
     @Override
     public boolean update(int oldId, int newId) throws DataAccessException {
+
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

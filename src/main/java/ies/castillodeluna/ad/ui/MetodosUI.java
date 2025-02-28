@@ -134,7 +134,7 @@ public class MetodosUI {
      * Metodo para actualizar los datos de un cliente existente
      * 
      * @param conexion Conexión a la base de datos
-     * @param datos    Objeto para obtener los nuevos datos del cliente
+     * @param datos Objeto para obtener los nuevos datos del cliente
      */
     public void actualizarCliente(Conexion conexion, ObtenerDatos datos) {
 
