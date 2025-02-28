@@ -3,6 +3,7 @@ package ies.castillodeluna.ad.ui;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import edu.acceso.sqlutils.errors.DataAccessException;
@@ -24,8 +25,9 @@ public class MetodosUI {
 
     /**
      * Metodo para guardar un nuevo cliente en la base de datos
+     * 
      * @param conexion Conexión a la base de datos
-     * @param datos Objeto para obtener los datos del cliente
+     * @param datos    Objeto para obtener los datos del cliente
      */
     public void guardarCliente(Conexion conexion, ObtenerDatos datos) {
 
@@ -51,8 +53,9 @@ public class MetodosUI {
 
     /**
      * Metodo para guardar un nuevo pedido en la base de datos
+     * 
      * @param conexion Conexión a la base de datos
-     * @param datos Objeto para obtener los datos del pedido
+     * @param datos    Objeto para obtener los datos del pedido
      */
     public void guardarPedido(Conexion conexion, ObtenerDatos datos) {
 
@@ -80,32 +83,30 @@ public class MetodosUI {
 
     /**
      * Metodo para eliminar un cliente de la base de datos
+     * 
      * @param conexion Conexión a la base de datos
      */
     public void borrarCliente(Conexion conexion) {
 
         System.out.println("Ingrese el ID del cliente a borrar: ");
         int id = sc.nextInt();
+        sc.nextLine();
 
         try {
-
             if (conexion.getCliente().delete(id)) {
-
                 System.out.println("Cliente eliminado correctamente");
-
             } else {
-
                 System.out.println("No se encontró el cliente con ID: " + id);
-
             }
         } catch (DataAccessException e) {
             System.err.println("Error al borrar el cliente: " + e.getMessage());
+            e.printStackTrace();
         }
-
     }
 
     /**
      * Metodo para eliminar un pedido de la base de datos
+     * 
      * @param conexion Conexión a la base de datos
      */
     public void borrarPedido(Conexion conexion) {
@@ -131,8 +132,9 @@ public class MetodosUI {
 
     /**
      * Metodo para actualizar los datos de un cliente existente
+     * 
      * @param conexion Conexión a la base de datos
-     * @param datos Objeto para obtener los nuevos datos del cliente
+     * @param datos    Objeto para obtener los nuevos datos del cliente
      */
     public void actualizarCliente(Conexion conexion, ObtenerDatos datos) {
 
@@ -170,6 +172,7 @@ public class MetodosUI {
     /**
      * Metodo para consultar y mostrar todos los pedidos de un cliente en particular
      * incluyendo el total gastado
+     * 
      * @param conexion Conexión a la base de datos
      */
     public void consultarPedidosCliente(Conexion conexion) {
@@ -209,15 +212,21 @@ public class MetodosUI {
 
     /**
      * Metodo para mostrar la lista de todos los clientes
+     * 
      * @param conexion Conexión a la base de datos
      */
     public void listaClientes(Conexion conexion) {
+        
         try {
             System.out.println("\n=== Lista de Clientes ===");
-            
-            List<Cliente> clientes = conexion.getCliente().get().toList();
+
+            List<Cliente> clientes;
+            try (Stream<Cliente> stream = conexion.getCliente().get()) {
+                clientes = stream.collect(Collectors.toList());
+            }
+
             System.out.println("Número de clientes encontrados: " + clientes.size());
-            
+
             if (clientes.isEmpty()) {
                 System.out.println("No hay clientes en la base de datos.");
             } else {
@@ -233,6 +242,7 @@ public class MetodosUI {
 
     /**
      * Metodo para mostrar la lista de todas las zonas de envio
+     * 
      * @param conexion Conexión a la base de datos
      */
     public void listaZonasEnvio(Conexion conexion) {

@@ -13,6 +13,11 @@
         <!-- Dialecto específico para SQLite -->
         <property name="hibernate.dialect">org.hibernate.community.dialect.SQLiteDialect</property>
 
+        <!-- Configuración específica para SQLite -->
+        <property name="hibernate.connection.pool_size">5</property>
+        <property name="hibernate.connection.isolation">2</property>
+        <property name="hibernate.connection.release_mode">after_transaction</property>
+
         <!-- Configuración de Hibernate -->
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.current_session_context_class">thread</property>
