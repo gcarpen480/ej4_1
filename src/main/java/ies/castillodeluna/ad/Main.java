@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             
-            System.out.println("Iniciando aplicación...");
+            System.out.println("Iniciando aplicación....");
             
             // Obtener opciones de conexión
             Map<String, Object> opciones = CrearConexion.opciones();
